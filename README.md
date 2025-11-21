@@ -1,4 +1,4 @@
-## Hi there
+
 <!-- Banner -->
 <h1 align="center">✨ Welcome to Anvika TechNova ✨</h1>
 <h3 align="center">Web Developer | Frontend Developer | AI Learner | Student + Developer</h3>
