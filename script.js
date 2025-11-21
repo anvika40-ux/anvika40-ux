@@ -145,3 +145,71 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.top = e.pageY + "px";
   cursor.style.left = e.pageX + "px";
 });
+
+/* ---------------------------------------------------------
+   TYPING ANIMATION
+------------------------------------------------------------*/
+
+const typingText = [
+  "Creative Developer",
+  "UI/UX Designer",
+  "3D Enthusiast",
+  "Cyberpunk Coder"
+];
+
+let typingIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const element = document.getElementById("typing");
+
+  if (!element) return;
+
+  let current = typingText[typingIndex];
+
+  if (isDeleting) {
+    element.textContent = current.substring(0, charIndex--);
+  } else {
+    element.textContent = current.substring(0, charIndex++);
+  }
+
+  if (!isDeleting && charIndex === current.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 1000);
+    return;
+  }
+
+  if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    typingIndex = (typingIndex + 1) % typingText.length;
+  }
+
+  setTimeout(typeEffect, isDeleting ? 70 : 120);
+}
+
+typeEffect();
+/* ---------------------------------------------------------
+   3D TILT EFFECT
+------------------------------------------------------------*/
+document.querySelectorAll(".tilt").forEach((box) => {
+  
+  box.addEventListener("mousemove", (e) => {
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+
+    box.style.transform = `perspective(800px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.08)`;
+  });
+
+  box.addEventListener("mouseleave", () => {
+    box.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
+  });
+
+});
