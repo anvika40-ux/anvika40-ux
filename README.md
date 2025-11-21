@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="anvika40-uxbanner.jpg" alt="Anvika TechNova Banner" width="100%">
+</p>
 
 <!-- Banner -->
 <h1 align="center">✨ Welcome to Anvika TechNova ✨</h1>
