@@ -63,7 +63,7 @@ https://github.com/anvika40-ux/AnvikaTechnova
 ---
 
 ## 📸 **Preview**
-screenshot.png
+
 
 ---
 
